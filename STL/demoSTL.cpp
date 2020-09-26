@@ -5,6 +5,7 @@
 #include "set"
 #include "map"
 #include "algorithm"
+#include "string"
 
 using namespace std;
 
@@ -163,7 +164,78 @@ void mapDemo(){
 
   // Declare a map using STL
   map<int, int> M;
+  M[1] = 100;
+  M[2] = -1;
+  M[3] = 200;
 
+  // Declare another map
+  map<char, int> cnt;
+  string x = "Sudhakar";
+
+  for (char c : x) {
+    cnt[c]++;
+  }
+
+  // Find how many times a character occurs in the string
+  cout << cnt['a'] << " " << cnt['d'] << endl; // O(log N) time
+}
+
+
+/* Solving a problem using STL */
+/* Given a number of intervals and an element, find out the interval
+in which the element lies.
+
+For example, suppose we have intervals like [2, 3], [10, 20], [30, 400],
+[401, 450] and and an element 13, we see that 13
+lies in the interval [10, 20].
+*/
+
+void powerOfSTL(){
+
+  cout << "\n Solving a problem using STL" << endl;
+
+  set< pair<int, int> > mySet;
+
+  // Insert pairs of elements
+  mySet.insert({401, 450});
+  mySet.insert({2, 3});
+  mySet.insert({10, 20});
+  mySet.insert({30, 400});
+
+  // 2,3
+  // 10, 20
+  // 30, 400
+  // 401, 450
+
+  // Set is always ordered in ascending order.
+  // How do we compare two pairs
+
+  /* For two pairs {a,c} and {b, d}, we can say that
+  {a,c} < {b,d} iff (a < b) or (a == b and c < d)
+  */
+
+  // Do an upper_bound to find the interval of the element
+  int point = 50;
+
+  auto it = mySet.upper_bound({ point, INT8_MAX });
+  // Since our set is of pair<int, int>, we also have to
+  // perform an upper_bound with passing in a pair of integers.
+
+  if (it == mySet.begin()) {
+    cout << "The current point is not lying in any of the intervals" << endl;
+    return;
+  }
+
+  it--;
+
+  pair<int , int> current = *it;
+
+  // The values in pair X = {a, b} can be accessed using X.first and X.second
+
+  if (current.first <= point && point <= current.second) {
+    cout << "Yes! " << current.first << " " << current.second << endl;
+  }
+  else cout << "The current point is not lying in any of the intervals" << endl;
 }
 
 /* Driver function */
@@ -171,6 +243,7 @@ int main(){
   vectorDemo();
   setDemo();
   mapDemo();
+  powerOfSTL();
 }
 
 
@@ -194,4 +267,9 @@ Present
 Couldn't find something like that!
 
  maps using STL
+2 1
+
+ Solving a problem using STL
+Yes! 30 400
+
 */
