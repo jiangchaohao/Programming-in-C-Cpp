@@ -8,6 +8,10 @@
 
 using namespace std;
 
+bool f(int x, int y) {
+  return x > y;
+}
+
 int main(){
 
   // Declare a vector using STL
@@ -59,4 +63,24 @@ int main(){
   // Count the number of occurences of element 100
   /* Iterators in vectors are random. */
   cout << it2 - it << endl; // 5, It takes O(1) time
+
+  // Sort the vector A in reverse order
+  // Use overloaded function by passing a comparator
+  sort(A.begin(), A.end(), f);
+
+  // Print the sorted vector A using iterators
+  vector<int>::iterator it3;
+
+  for (it3 = A.begin(); it3 != A.end(); it3++){
+    cout << *it3 << " ";
+  }
+  cout << endl;
+
+  // A = {123, 100, 100, 100, 100, 100, 14, 11, 3, 2}
+
+  // Print vector A another way
+  for (int x : A){
+    cout << x << " ";
+  }
+  cout << endl;
 }
