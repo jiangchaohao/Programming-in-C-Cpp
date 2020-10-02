@@ -19,7 +19,7 @@ int cash = 100;
 
 void Play(int bet){
   // char C[3] = {'J', 'Q', 'K'};
-  char *C = (char*)malloc(3*sizeof(char));
+  char *C = (char*)malloc(3*sizeof(char)); // In C++, char *C = new char[3]; 
   C[0] = 'J'; C[1] = 'Q'; C[2] = 'K';
   printf("Shuffling.....\n");
 
@@ -44,7 +44,7 @@ void Play(int bet){
     cash -= bet;
     printf("You lose! Result = \"%c %c %c\" Total cash = %d\n", C[0], C[1], C[2], cash);
   }
-  free(C);
+  free(C); // In C++, delete(C); 
 }
 
 int main(){
