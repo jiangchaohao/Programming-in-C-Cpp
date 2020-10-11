@@ -13,7 +13,8 @@ If we allocate memory through calloc, it sets
 all byte positions with value zero.
 
 If you have a block of memory, 
-dynamically allocated block of memory and if you want to change the size of this block of memory, then you can use realloc.
+dynamically allocated block of memory and if you want to change the size of this block of memory, 
+then you can use realloc.
 
 For deallocating block of memory
 - free
