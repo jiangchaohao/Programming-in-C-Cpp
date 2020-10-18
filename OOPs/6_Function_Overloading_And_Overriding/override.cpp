@@ -6,7 +6,7 @@ Function Overriding
 */
 
 /*
-- Overloading can occurs without inheritance.
+- Overloading can occur without inheritance.
 - Overriding occurs when one class is inherited from another.
 - In overloading the arguments and the return-type must differ.
 - In overriding the arguments and the return type must be same.
